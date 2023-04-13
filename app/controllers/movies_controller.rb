@@ -1,6 +1,13 @@
-class MoviesController < ApplicationController
+class MoviesController < ApplicationController 
 
+  def index
 
+    @list_of_movies = Movie.all
+    
+    render({ :template => "movie_templates/index.html.erb" })
+  end
+
+  
   def movie_details
     # params looks like {"an_id"=>"42"}
 
@@ -10,4 +17,5 @@ class MoviesController < ApplicationController
     
     render({ :template => "movie_templates/show.html.erb" })
   end
-  end
+
+end
